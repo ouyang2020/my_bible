@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="col-3 bk_btn">
+        <h4>旧约圣经</h4>
+        {% for book in books[0:39] %}
+            <a href="{{ url_for('main.words_book',book_code=book['book_code']) }}">
+                {% if book['book_code']==chp_info['book_code'] %}
+                    <span class="btn btn-secondary btn-sm">{{ book['name'] }}</span>
+                {% else %}
+                     <span class="btn btn-outline-secondary btn-sm">{{ book['name'] }}</span>
+                {% endif %}
+            </a>
+        {% endfor %}
+        <h4 class="mg_top_25">新约圣经</h4>
+        {% for book in books[39:] %}
+            <a href="{{ url_for('main.words_book',book_code=book['book_code']) }}">
+                {% if book['book_code']==chp_info['book_code'] %}
+                    <span class="btn btn-secondary btn-sm">{{ book['name'] }}</span>
+                {% else %}
+                    <span class="btn btn-outline-secondary btn-sm">{{ book['name'] }}</span>
+                {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+    <div class="col-9 word_main">
+        <div class="row">
+            <h4 class="col-12">{{ chp_info['book_name'] }}&nbsp;&nbsp;&nbsp;第{{ chp_info['chp_num'] }}章</h4>
+        </div>
+        <div class="row">
+            <div class="col-12 chp_btn">
+                {% for chapter in chapters %}
+                    <a href="{{ url_for('main.words_book_chapter',book_code=chp_info['book_code'],chp_num=chapter) }}">
+                        {% if chapter==chp_info['chp_num'] %}
+                            <span class="btn btn-info btn-sm text-center align-middle">{{ chapter }}</span>
+                        {% else %}
+                            <span class="btn btn-outline-info btn-sm text-center align-middle">{{ chapter }}</span>
+                        {% endif %}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            {% for verseNum,word in words.items() %}
+                <div class="col-1 ver_num">{{verseNum }}</div>
+                <div class="col-11 ver_txt">{{ word }}</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

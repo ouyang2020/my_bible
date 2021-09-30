@@ -1,0 +1,30 @@
+.mytlt{color:blue;}
+.top_band{background-color:#0A9494; color:#ffffff; margin-bottom:20px; padding:20px 0 5px 0;}
+.footer_band{background-color:#0A8484; color:#ffffff; margin-top:100px; min-height:200px; padding-top:20px;}
+.top_btn a{color:#ffffff; text-decoration:none;}
+.top_btn a:hover{color:#E0E1E2; text-decoration:none;}
+.band_link{color:#ffffff;}
+.band_link a{color:#ffffff; text-decoration:none;}
+.band_link a:hover{color:#E0E1E2; text-decoration:none;}
+.height_100p{height:100%;}
+.height_90p{height:90%;}
+.height_80p{height:80%;}
+.height_75p{height:75%;}
+.height_25p{height:25%;}
+.height_10p{height:10%;}
+.ver_li div{display: inline-block;}
+.ver_num{}
+.ver_txt{}
+.ver_num a{text-decoration: none;}
+.word_main{padding:0 35px 0 35px; border-left: solid 1px #0A9494; }
+.chp_btn{margin:15px 0 15px 0;}
+.chp_btn a:hover {text-decoration: none;}
+.chp_btn a span{width:25px; height:20px; font-size:12px; padding:0 0 0 0; line-height:20px;}
+.bk_btn h4{margin-bottom:15px;}
+.bk_btn a:hover {text-decoration: none;}
+.bk_btn a span{font-size:14px; margin-bottom:3px;}
+.mg_top_25{margin-top:25px;}
+.search_box{max-width: 200px;}
+.key_high_light{color:#2A7EE4;font-weight:600;}
+.content_hl{color:#2A7EE4}
+.search_btn{background-color:#0B7E7E; color:#FFFFFF;}

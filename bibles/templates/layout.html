@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='mystyle.css') }}">
+    <script src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+    <!--
+    <script src="{{ url_for('static',filename='bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='bootstrap.esm.min.js') }}"></script>
+    -->
+    {% if title['small'] %}
+        <title>{{ title['small'] }}</title>
+    {% else %}
+        <title>Title</title>
+    {% endif %}
+
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row top_band">
+            <div class="col-6 band_link">
+                <a href="{{  url_for('main.home') }}"><h3>{{ title['big'] }}</h3></a>
+            </div>
+            <form class="col-6" method="post" action="{{ url_for('main.search') }}">
+                {% if title['right']=='search' %}
+                    <div class="float-right">
+                        <div class="input-group mb-3">
+                            <input type="search" name="key_word" class="form-control ds-input search_box" placeholder="搜索经文" >
+                            <div class="input-group-append">
+                                <input class="input-group-text search_btn" type="submit" value="查找">
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </form>
+
+        </div>
+        <div class="row">
+            {% block body %}
+            {% endblock %}
+        </div>
+        {% if not hide_footer %}
+            <div class="row footer_band">
+                <div class="container">
+                    <div class="row height_75p">
+                        <h5>Welcome to bible site!</h5>
+                    </div>
+                    <div class="row height_25p align-text-bottom">
+                        <div class="col-12 text-center align-text-bottom">
+                            @{{ this_year }} This is bible site
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

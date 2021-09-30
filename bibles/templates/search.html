@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="col-3 bk_btn">
+        <h4>旧约圣经</h4>
+        {% for book in books[0:39] %}
+            <a href="{{ url_for('main.words_book',book_code=book['book_code']) }}">
+                 <span class="btn btn-outline-secondary btn-sm">{{ book['name'] }}</span>
+            </a>
+        {% endfor %}
+        <h4 class="mg_top_25">新约圣经</h4>
+        {% for book in books[39:] %}
+            <a href="{{ url_for('main.words_book',book_code=book['book_code']) }}">
+                <span class="btn btn-outline-secondary btn-sm">{{ book['name'] }}</span>
+            </a>
+        {% endfor %}
+    </div>
+    <div class="col-9 word_main">
+        <div class="row">
+            <h5 class="col-12">
+                {% if num_of_results>0 %}
+                找到{{ num_of_results }}节与"<span class="key_high_light">{{  key_word }}</span>"相关的经文：
+                {% else %}
+                    没有找到相关经文。
+                {% endif %}
+            </h5>
+        </div>
+        <div class="row">
+            {% for search_result in search_results %}
+            <div class="col-2 ver_num"><a href="{{ url_for('main.words_book_chapter',book_code=search_result[0],chp_num=search_result[1]) }}">{{ books_indexes[search_result[0]][1]}} {{ search_result[1] }} : {{ search_result[2] }}</a></div>
+                <div class="col-10 ver_txt">{{ search_result[3] }}</div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}
